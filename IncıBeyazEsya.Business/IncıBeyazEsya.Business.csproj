@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E21C73B3-F09A-4BD1-AD5C-4F51702EF1E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IncıBeyazEsya.Business</RootNamespace>
+    <AssemblyName>IncıBeyazEsya.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAdressService.cs" />
+    <Compile Include="Abstract\ICitiesService.cs" />
+    <Compile Include="Abstract\IDistrictsService.cs" />
+    <Compile Include="Abstract\IInvoicesDetailService.cs" />
+    <Compile Include="Abstract\IInvoicesService.cs" />
+    <Compile Include="Abstract\IOrderDetailsService.cs" />
+    <Compile Include="Abstract\IOrdersService.cs" />
+    <Compile Include="Abstract\IPaymentsService.cs" />
+    <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="Abstract\IStoredProcedureService.cs" />
+    <Compile Include="Abstract\ITownsService.cs" />
+    <Compile Include="Abstract\IUsersService.cs" />
+    <Compile Include="Concrate\Managers\AdressManager.cs" />
+    <Compile Include="Concrate\Managers\CitiesManager.cs" />
+    <Compile Include="Concrate\Managers\DistrictsManager.cs" />
+    <Compile Include="Concrate\Managers\InvoiceDetailManager.cs" />
+    <Compile Include="Concrate\Managers\InvoicesManager.cs" />
+    <Compile Include="Concrate\Managers\OrdersDetailManagers.cs" />
+    <Compile Include="Concrate\Managers\OrdersManager.cs" />
+    <Compile Include="Concrate\Managers\PaymentsManager.cs" />
+    <Compile Include="Concrate\Managers\ProductManager.cs" />
+    <Compile Include="Concrate\Managers\StoredProcedureManager.cs" />
+    <Compile Include="Concrate\Managers\TownsManager.cs" />
+    <Compile Include="Concrate\Managers\UsersManager.cs" />
+    <Compile Include="DepencyResolvers\Ninject\BusinessModule.cs" />
+    <Compile Include="DepencyResolvers\Ninject\InstanceFactory.cs" />
+    <Compile Include="ExpectionRules\Expections\NotEmpty.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\InciBeyazEsya.Entities\InciBeyazEsya.Entities.csproj">
+      <Project>{801E5FFE-1C9B-4C58-893F-5ADA75435E24}</Project>
+      <Name>InciBeyazEsya.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IncıBeyazEsya.DataAcces\IncıBeyazEsya.DataAcces.csproj">
+      <Project>{98C7B3F7-412C-42AD-B60C-4A6F11F4646A}</Project>
+      <Name>IncıBeyazEsya.DataAcces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
